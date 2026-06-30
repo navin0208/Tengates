@@ -16,7 +16,7 @@ const locations = [
   { id: 8, name: "Swapnil Agro", city: "Deola", state: "Maharashtra", slug: "swapnil-agro", x: 21.5, y: 57 },
   { id: 9, name: "Avabeach", city: "Wadi Varhe", state: "Maharashtra", slug: "avabeach", x: 20.5, y: 58.5 },
   { id: 10, name: "Sahyadri Farmer", city: "Nanded", state: "Maharashtra", slug: "sahyadri-fpc-nanded", x: 33, y: 60 },
-  { id: 11, name: "Maruti Seva Auto", city: "Nandurbar", state: "Maharashtra", slug: "maruti-seva", x: 21, y: 53 },
+  { id: 11, name: "Maruti Seva Auto", city: "Nandurbar", state: "Maharashtra", slug: "maruti-seva", x: 22, y: 55 },
   { id: 12, name: "Ghoti Maruti Seva", city: "Ghoti", state: "Maharashtra", slug: "ghoti-maruti-seva", x: 21, y: 59.5 },
   { id: 13, name: "HB Realty", city: "Dindori", state: "Maharashtra", slug: "hb-reality-nashik", x: 23, y: 57.5 },
   { id: 14, name: "Mumbai T2 Mcdonalds", city: "Mumbai", state: "Maharashtra", slug: "mcdonalds-mumbai-t2", x: 18.5, y: 60.5 },
