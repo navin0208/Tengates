@@ -69,7 +69,6 @@ const ServicesRoute = () => (
       image="https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&q=80&w=2400"
     />
     <div className="content-layers">
-      <AnimatedSlideshow />
       <ServicesPage />
       <CTA />
     </div>

@@ -4,36 +4,42 @@ import styles from './ServicesPage.module.css';
 const coreServices = [
   {
     num: "01",
-    title: "Industrial Civil Construction",
+    img: "/industrial_warehousing.png",
+    title: "Industrial Warehousing",
     desc: "End-to-end civil works for factories, admin buildings, and industrial campuses. From foundation to finishing, we deliver structures engineered for heavy-duty industrial use.",
     features: ["Factory buildings", "Admin complexes", "Industrial campuses", "Machine foundations"],
   },
   {
     num: "02",
+    img: "/Cold_storage.png",
     title: "Warehouse & Cold Storage",
     desc: "Large-scale warehousing and cold storage solutions with optimized structural integrity, dock levelers, and climate-controlled environments.",
     features: ["Warehouse construction", "Cold storage facilities", "Dock levelers", "Climate control"],
   },
   {
     num: "03",
+    img: "/secheron.jpg",
     title: "Precision Concreting & Trimix Flooring",
     desc: "M35 grade trimix flooring with reinforcement, PCC, and acid-proof tiling for industrial floors requiring absolute flatness and durability.",
     features: ["M35 Trimix flooring", "Acid-proof tiling", "Grade slabs", "Night-shift concreting"],
   },
   {
     num: "04",
+    img: "/Infrastructure_roads.png",
     title: "Infrastructure & Roads",
     desc: "Roads, drainage, utility networks, and internal factory road systems designed for heavy vehicle traffic and long-term load endurance.",
     features: ["Factory roads", "Drainage systems", "Utility networks", "Heavy-load surfaces"],
   },
   {
     num: "05",
+    img: "/foundation_engineering.png",
     title: "Foundation Engineering",
     desc: "Deep and shallow foundations, pile foundations, pedestal work, and anchor bolt installations for machinery, boilers, evaporators, and chimneys.",
     features: ["Pile foundations", "Pedestal work", "Anchor bolts", "Chimney foundations"],
   },
   {
     num: "06",
+    img: "/turnkey_construction.png",
     title: "Turnkey Projects",
     desc: "Complete turnkey project delivery — from site survey and design through execution and handover — single-point accountability for your entire project.",
     features: ["End-to-end delivery", "Single accountability", "Design to handover", "Quality assurance"],
@@ -89,16 +95,19 @@ const ServicesPage = () => (
           {coreServices.map((service, i) => {
             return (
               <motion.div key={i} className={styles.serviceCard} {...fadeIn(i * 0.08)}>
-                <div className={styles.serviceIcon} style={{ fontFamily: 'JetBrains Mono, monospace', fontWeight: 700, fontSize: '18px', color: 'var(--accent-amber)' }}>
-                  {service.num}
+                <img src={service.img} alt={service.title} className={styles.cardBgImage} />
+                <div className={styles.cardGradientOverlay}></div>
+                
+                <div className={styles.cardContent}>
+                  <h3 className={styles.serviceTitle}>{service.title}</h3>
+                  <p className={styles.serviceDesc}>{service.desc}</p>
+                  <ul className={styles.featureList}>
+                    {service.features.slice(0, 2).map((f, fi) => (
+                      <li key={fi}>{f}</li>
+                    ))}
+                  </ul>
+                  <button className={styles.cardActionBtn}>Learn More</button>
                 </div>
-                <h3 className={styles.serviceTitle}>{service.title}</h3>
-                <p className={styles.serviceDesc}>{service.desc}</p>
-                <ul className={styles.featureList}>
-                  {service.features.map((f, fi) => (
-                    <li key={fi}>{f}</li>
-                  ))}
-                </ul>
               </motion.div>
             );
           })}

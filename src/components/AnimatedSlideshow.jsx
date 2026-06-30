@@ -105,28 +105,33 @@ export const HoverSliderImage = ({ index, imageUrl, className, alt }) => {
 const SLIDES = [
   {
     id: "slide-1",
-    title: "Turnkey Construction",
-    imageUrl: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2487&auto=format&fit=crop",
+    title: "Industrial Warehousing",
+    imageUrl: "/industrial_warehousing.png",
   },
   {
     id: "slide-2",
-    title: "Industrial Warehousing",
-    imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8ed74514fa?q=80&w=2487&auto=format&fit=crop",
+    title: "Cold Storage",
+    imageUrl: "/Cold_storage.png",
   },
   {
     id: "slide-3",
-    title: "Cold Storage ",
-    imageUrl: "https://images.unsplash.com/photo-1504307651254-35680f356f12?q=80&w=2487&auto=format&fit=crop",
+    title: "Concreting & Flooring",
+    imageUrl: "/secheron.jpg",
   },
   {
     id: "slide-4",
-    title: "Pre-Engineered Buildings",
-    imageUrl: "https://images.unsplash.com/photo-1590495958611-3e4e9791404f?q=80&w=2487&auto=format&fit=crop",
+    title: "Infrastructure & Roads",
+    imageUrl: "/Infrastructure_roads.png",
   },
   {
     id: "slide-5",
-    title: "Precision MEP",
-    imageUrl: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2487&auto=format&fit=crop",
+    title: "Foundation Engineering",
+    imageUrl: "/foundation_engineering.png",
+  },
+  {
+    id: "slide-6",
+    title: "Turnkey Projects",
+    imageUrl: "/turnkey_construction.png",
   },
 ];
 
