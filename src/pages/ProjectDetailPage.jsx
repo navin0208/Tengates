@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Calendar, Clock, Building2, Ruler, User, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { allProjects } from '../data/projects';
 import styles from './ProjectDetailPage.module.css';
@@ -61,7 +61,7 @@ const ProjectDetailPage = () => {
           <h2>Project not found</h2>
           <p>The project you're looking for doesn't exist.</p>
           <Link to="/projects" className={styles.backLink}>
-            <ArrowLeft size={18} />
+            <span style={{ marginRight: '8px' }}>←</span>
             Back to Projects
           </Link>
         </div>
@@ -83,7 +83,7 @@ const ProjectDetailPage = () => {
         <div className={`container ${styles.heroContent}`}>
           <motion.div {...fadeIn()}>
             <Link to="/projects" className={styles.backLink}>
-              <ArrowLeft size={18} />
+              <span style={{ marginRight: '8px' }}>←</span>
               All Projects
             </Link>
           </motion.div>
@@ -97,7 +97,6 @@ const ProjectDetailPage = () => {
             </div>
             <h1 className={styles.heroTitle}>{project.name}</h1>
             <p className={styles.heroLocation}>
-              <MapPin size={16} />
               {project.location}
             </p>
           </motion.div>
@@ -150,42 +149,36 @@ const ProjectDetailPage = () => {
                 <h3 className={styles.factTitle}>Project Details</h3>
                 <div className={styles.factList}>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><User size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Client</span>
                       <span className={styles.factValue}>{project.client}</span>
                     </div>
                   </div>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><Building2 size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Building Type</span>
                       <span className={styles.factValue}>{project.buildingType}</span>
                     </div>
                   </div>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><Ruler size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Total Area</span>
                       <span className={styles.factValue}>{project.area}</span>
                     </div>
                   </div>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><Calendar size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Year</span>
                       <span className={styles.factValue}>{project.year}</span>
                     </div>
                   </div>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><Clock size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Duration</span>
                       <span className={styles.factValue}>{project.duration}</span>
                     </div>
                   </div>
                   <div className={styles.factItem}>
-                    <div className={styles.factIcon}><MapPin size={16} /></div>
                     <div>
                       <span className={styles.factLabel}>Location</span>
                       <span className={styles.factValue}>{project.location}</span>
@@ -247,7 +240,7 @@ const ProjectDetailPage = () => {
       <section className={styles.navSection}>
         <div className="container">
           <Link to="/projects" className={styles.backBtn}>
-            <ArrowLeft size={18} />
+            <span style={{ marginRight: '8px' }}>←</span>
             Back to All Projects
           </Link>
         </div>

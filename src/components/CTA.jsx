@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Mail } from 'lucide-react';
 import ContactForm from './ContactForm';
 import styles from './CTA.module.css';
 

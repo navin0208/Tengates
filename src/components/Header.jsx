@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
 import HamburgerIcon from './HamburgerIcon';
 import styles from './Header.module.css';
 
@@ -138,7 +137,7 @@ const Header = () => {
                     >
                       <span className={styles.mobileLinkNum}>0{i + 1}</span>
                       <span className={styles.mobileLinkText}>{link.name}</span>
-                      <ArrowUpRight className={styles.mobileLinkIcon} size={28} />
+                      <span className={styles.mobileLinkIcon}>↗</span>
                     </Link>
                   </motion.div>
                 ))}

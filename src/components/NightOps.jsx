@@ -17,7 +17,7 @@ const NightOps = () => {
   return (
     <section className={styles.nightOpsSection} ref={containerRef}>
       <motion.div className={styles.bgWrapper} style={{ scale }}>
-        <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=1200" alt="Night Operations" className={styles.bgImage} />
+        <img src="/Ops.png" alt="Night Operations" className={styles.bgImage} />
         <div className={styles.overlay}></div>
         <div className={styles.vignetteOverlay}></div>
       </motion.div>

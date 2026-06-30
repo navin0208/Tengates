@@ -199,6 +199,14 @@
 
 .focusItem:hover .focusIcon {
   color: var(--accent-amber);
+  opacity: 0.8;
+}
+
+.numIcon {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-amber);
 }
 
 .focusTextContent h4 {
