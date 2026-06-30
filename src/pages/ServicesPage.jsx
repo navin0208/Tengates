@@ -12,7 +12,7 @@ const coreServices = [
   {
     num: "02",
     img: "/Cold_storage.png",
-    title: "Warehouse & Cold Storage",
+    title: "Cold Storage",
     desc: "Large-scale warehousing and cold storage solutions with optimized structural integrity, dock levelers, and climate-controlled environments.",
     features: ["Warehouse construction", "Cold storage facilities", "Dock levelers", "Climate control"],
   },
@@ -79,6 +79,8 @@ const fadeIn = (delay = 0) => ({
 const ServicesPage = () => (
   <div className={styles.page}>
 
+
+
     {/* Core Services Grid */}
     <section className={styles.servicesSection}>
       <div className="container">
@@ -97,7 +99,7 @@ const ServicesPage = () => (
               <motion.div key={i} className={styles.serviceCard} {...fadeIn(i * 0.08)}>
                 <img src={service.img} alt={service.title} className={styles.cardBgImage} />
                 <div className={styles.cardGradientOverlay}></div>
-                
+
                 <div className={styles.cardContent}>
                   <h3 className={styles.serviceTitle}>{service.title}</h3>
                   <p className={styles.serviceDesc}>{service.desc}</p>
@@ -106,7 +108,6 @@ const ServicesPage = () => (
                       <li key={fi}>{f}</li>
                     ))}
                   </ul>
-                  <button className={styles.cardActionBtn}>Learn More</button>
                 </div>
               </motion.div>
             );

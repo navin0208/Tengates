@@ -35,9 +35,13 @@ import Sustainability from './components/Sustainability';
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
   }, [pathname]);
   return null;
 };
@@ -66,7 +70,7 @@ const ServicesRoute = () => (
       label="Our Expertise"
       title="Precision Engineering Services"
       subtitle="End-to-end construction services — foundations, flooring, warehousing, and turnkey project delivery."
-      image="https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&q=80&w=2400"
+      image="/Services_hero.png"
     />
     <div className="content-layers">
       <ServicesPage />
@@ -96,7 +100,7 @@ const AboutRoute = () => (
       label="About Us"
       title="Building Legacies"
       subtitle="Since 2023, Ten Gates has been building industrial infrastructure — factories, warehouses, and processing facilities that get the job done."
-      image="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&q=80&w=2400"
+      image="/about_hero.png"
     />
     <div className="content-layers">
       <AboutPage />
@@ -118,6 +122,8 @@ function App() {
       infinite: false,
     });
 
+    window.lenis = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -126,6 +132,7 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
+      window.lenis = null;
       lenis.destroy();
     };
   }, []);
