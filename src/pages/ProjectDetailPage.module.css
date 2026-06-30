@@ -1,0 +1,461 @@
+/* ═══ Project Detail Page ═══ */
+
+.page {
+  padding-bottom: 4rem;
+}
+
+/* ── Not Found ── */
+.notFound {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.notFound h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.notFound p {
+  margin-bottom: 2rem;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 55vh;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 3rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: var(--accent-amber);
+}
+
+.heroText {
+  max-width: 720px;
+}
+
+.heroBadges {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.categoryBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.statusBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.statusDone {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #22c55e;
+}
+
+.statusLive {
+  background: rgba(230, 81, 0, 0.12);
+  border: 1px solid rgba(230, 81, 0, 0.25);
+  color: var(--accent-amber);
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.heroLocation {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* ── Details Section ── */
+.detailsSection {
+  padding: 4rem 0 3rem;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* Scope */
+.scopeSection {
+  margin-bottom: 2.5rem;
+}
+
+.subTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.scopeList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.scopeList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.scopeDot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  margin-top: 0.5rem;
+}
+
+/* Highlights */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.highlightCard {
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.factCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.factTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.factList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.factItem {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.factIcon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(230, 81, 0, 0.1);
+  border-radius: 8px;
+  color: var(--accent-amber);
+}
+
+.factLabel {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.15rem;
+  font-weight: 500;
+}
+
+.factValue {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── Gallery Section ── */
+.gallerySection {
+  padding: 3rem 0 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.galleryTabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.galleryTab {
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: inherit;
+}
+
+.galleryTab:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.galleryTabActive {
+  background: var(--accent-amber);
+  border-color: var(--accent-amber);
+  color: #fff;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  min-height: 200px;
+}
+
+.galleryItem {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover img {
+  transform: scale(1.04);
+}
+
+/* Empty Gallery */
+.emptyGallery {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.4;
+}
+
+.emptyText {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ── Bottom Navigation ── */
+.navSection {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.25s;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    height: 45vh;
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryTabs {
+    flex-wrap: wrap;
+  }
+
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .detailsSection {
+    padding: 2.5rem 0 2rem;
+  }
+}

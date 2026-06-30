@@ -1,0 +1,402 @@
+/* ═══════════════════════════════════════════
+   HERO — Cinematic / Background-Dominant
+   ═══════════════════════════════════════════ */
+
+.heroWrapper {
+  height: 130vh;
+  position: relative;
+}
+
+.heroContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Background Layer ───────────────────── */
+
+.backgroundWrapper {
+  position: absolute;
+  inset: -5%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Let the image shine — lighter overlay, cinematic color grade */
+  filter: brightness(0.55) contrast(1.25) saturate(0.8);
+}
+
+/* Gradient vignette — keeps text readable without killing the image */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    /* radial vignette */
+    radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(24, 16, 15, 0.55) 100%),
+    /* bottom-heavy for text contrast */
+    linear-gradient(
+      to bottom,
+      rgba(24, 16, 15, 0.1) 0%,
+      rgba(24, 16, 15, 0.25) 40%,
+      rgba(24, 16, 15, 0.7) 85%,
+      var(--bg-primary) 100%
+    );
+}
+
+/* Film grain */
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.035;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Subtle scan lines for cinematic CRT texture */
+.scanLines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* ── Ambient Glow ───────────────────────── */
+
+.ambientGlow {
+  position: absolute;
+  bottom: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 50%;
+  background: transparent;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+  0%   { opacity: 0.4; transform: translateX(-50%) scale(0.95); }
+  100% { opacity: 0.8; transform: translateX(-50%) scale(1.05); }
+}
+
+/* ── Corner Marks (cinematic frame) ─────── */
+
+.cornerMark {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.cornerMark::before,
+.cornerMark::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.12);
+}
+
+.topLeft { top: 32px; left: 32px; }
+.topLeft::before { top: 0; left: 0; width: 16px; height: 1px; }
+.topLeft::after  { top: 0; left: 0; width: 1px; height: 16px; }
+
+.topRight { top: 32px; right: 32px; }
+.topRight::before { top: 0; right: 0; width: 16px; height: 1px; }
+.topRight::after  { top: 0; right: 0; width: 1px; height: 16px; }
+
+.bottomLeft { bottom: 32px; left: 32px; }
+.bottomLeft::before { bottom: 0; left: 0; width: 16px; height: 1px; }
+.bottomLeft::after  { bottom: 0; left: 0; width: 1px; height: 16px; }
+
+.bottomRight { bottom: 32px; right: 32px; }
+.bottomRight::before { bottom: 0; right: 0; width: 16px; height: 1px; }
+.bottomRight::after  { bottom: 0; right: 0; width: 1px; height: 16px; }
+
+/* ── Content ────────────────────────────── */
+
+.content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 860px;
+  padding: 0 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+}
+
+/* Label pill */
+.labelPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 100px;
+  color: var(--accent-amber);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.labelDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  box-shadow: 0 0 10px var(--accent-amber);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.6); }
+}
+
+/* Title — reduced sizing, cinematic weight */
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
+}
+
+.titleThin {
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: rgba(240, 242, 245, 0.7);
+}
+
+/* Subtitle */
+.subtitle {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: rgba(240, 242, 245, 0.5);
+  max-width: 520px;
+  margin-bottom: 44px;
+  line-height: 1.7;
+  font-weight: 400;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.brDesktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .brDesktop {
+    display: block;
+  }
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--bg-primary);
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(255,255,255,0.12);
+}
+
+.btnArrow {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.btnShine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+  animation: shine 5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%   { left: -100%; }
+  30%  { left: 100%; }
+  100% { left: 100%; }
+}
+
+.ghostBtn {
+  padding: 16px 32px;
+  border-radius: 4px;
+  background: transparent;
+  color: rgba(240, 242, 245, 0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ghostBtn:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.25);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn,
+  .ghostBtn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ── Carousel Controls ───────────────────── */
+
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.navArrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+}
+
+.prevArrow {
+  left: 24px;
+}
+
+.nextArrow {
+  right: 24px;
+}
+
+.dotsContainer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: var(--accent-amber);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px var(--accent-amber);
+}
+
+@media (max-width: 768px) {
+  .navArrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .prevArrow { left: 16px; }
+  .nextArrow { right: 16px; }
+}
+
+/* ── Bottom Fade ────────────────────────── */
+
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  z-index: 4;
+  pointer-events: none;
+}

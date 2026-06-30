@@ -1,0 +1,130 @@
+.section {
+  padding: 120px 0;
+  background: var(--bg-primary);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(255, 153, 0, 0.2);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoBox {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clientLogoImage {
+  width: 60px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clientLogoImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: grayscale(100%) brightness(1.5);
+  transition: all 0.3s ease;
+}
+
+.card:hover .clientLogoImage img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.industry {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 1;
+}
+
+.corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent-amber);
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.corner0 { top: 10px; left: 10px; border-top: 1px solid; border-left: 1px solid; }
+.corner1 { top: 10px; right: 10px; border-top: 1px solid; border-right: 1px solid; }
+.corner2 { bottom: 10px; right: 10px; border-bottom: 1px solid; border-right: 1px solid; }
+.corner3 { bottom: 10px; left: 10px; border-bottom: 1px solid; border-left: 1px solid; }
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,285 @@
+/* ═══════════════════════════════════════════
+   HEADER — Premium Glassmorphic Navbar
+   ═══════════════════════════════════════════ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
+}
+
+/* Scrolled state — glass backdrop */
+.scrolled {
+  background: rgba(24, 16, 15, 0.65);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Inner container — flex with three columns */
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+}
+
+/* ── Logo ──────────────────────────────── */
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+/* ── Desktop Nav — centered ────────────── */
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.activeLink {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+/* Animated dot under active link */
+.activeDot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent-amber);
+  box-shadow: 0 0 8px var(--accent-amber);
+}
+
+/* ── Right Group ───────────────────────── */
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.ctaBtn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 6px;
+}
+
+@media (min-width: 1024px) {
+  .ctaBtn {
+    display: inline-flex;
+  }
+}
+
+.ctaBtn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.ctaArrow {
+  font-size: 13px;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translate(2px, -2px);
+}
+
+/* ── Hamburger Toggle ──────────────────── */
+
+.menuToggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+@media (min-width: 1024px) {
+  .menuToggle {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE MENU
+   ═══════════════════════════════════════════ */
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 5% 40px;
+}
+
+.mobileMenuContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobileLinkNum {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent-amber);
+  opacity: 0.4;
+}
+
+.mobileLinkText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.mobileLinkIcon {
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--accent-amber);
+}
+
+.mobileNavLink:hover .mobileLinkIcon {
+  opacity: 1;
+  transform: translate(5px, -5px);
+}
+
+.mobileFooter {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 32px;
+}
+
+.contactInfo p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.1em;
+}
+
+.contactInfo a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.socialLinks a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  transition: opacity 0.3s ease;
+}
+
+.socialLinks a:hover {
+  opacity: 1;
+}
+
+.menuGrid {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  background-size: 50px 50px;
+  z-index: 1;
+  pointer-events: none;
+}

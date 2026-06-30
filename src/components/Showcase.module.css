@@ -1,0 +1,215 @@
+.showcaseSection {
+  position: relative;
+  background-color: var(--bg-primary);
+  width: 100%;
+  z-index: 5;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header {
+  padding: 0 5%;
+  margin-bottom: 40px;
+}
+
+.scrollWrapper {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+}
+
+.horizontalScroll {
+  display: flex;
+  height: 100%;
+  width: max-content;
+}
+
+.sizer {
+  width: 100%;
+}
+
+.projectCard {
+  width: 90vw;
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .projectCard {
+    width: 80vw;
+    padding: 0 40px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  group: hover;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  filter: grayscale(80%) contrast(1.1);
+}
+
+.imageWrapper:hover .projectImage {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  z-index: 1;
+}
+
+.infoPanel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  width: auto;
+  max-width: 400px;
+  padding: 24px;
+  z-index: 2;
+  transform: translateY(20px);
+  opacity: 0.9;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+  .infoPanel {
+    bottom: 40px;
+    left: 40px;
+    right: auto;
+    width: 400px;
+    padding: 32px;
+  }
+}
+
+.imageWrapper:hover .infoPanel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.category {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-orange);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: 14px;
+}
+
+.details {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.value {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.viewBtn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.viewBtn:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+/* Explore All Projects button */
+.exploreRow {
+  display: flex;
+  justify-content: center;
+  padding: 40px 5% 0;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 16px 36px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exploreBtn:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+  transform: translateY(-2px);
+}
+
+.exploreBtnArrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.exploreBtn:hover .exploreBtnArrow {
+  transform: translateX(4px);
+}

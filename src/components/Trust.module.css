@@ -1,0 +1,85 @@
+.trustSection {
+  padding: 120px 0;
+  background: var(--bg-secondary);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.reasonCard {
+  padding: 40px;
+  background: transparent;
+}
+
+.reasonTitle {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: var(--accent-amber);
+}
+
+.reasonDesc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.collabBox {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .collabBox {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
+
+.collabContent {
+  max-width: 700px;
+}
+
+.collabTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.collabText {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.collabStat {
+  text-align: center;
+  padding: 32px;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.statValue {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--accent-amber);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}

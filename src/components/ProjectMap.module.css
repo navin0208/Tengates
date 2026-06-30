@@ -1,0 +1,198 @@
+.mapSection {
+  padding: 120px 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  z-index: 0;
+}
+
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(230, 81, 0, 0.05) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 1 / 1.2;
+  background: transparent;
+  border-radius: 40px;
+  padding: 40px;
+}
+
+.indiaMap {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+.mapOutline {
+  transition: all 0.5s ease;
+}
+
+.pointsOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.point {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.dot {
+  width: 100%;
+  height: 100%;
+  background: var(--accent-amber);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-amber);
+}
+
+.ping {
+  position: absolute;
+  inset: -100%;
+  border: 2px solid var(--accent-amber);
+  border-radius: 50%;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  opacity: 0;
+}
+
+@keyframes ping {
+  0% { transform: scale(0.5); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.point:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltipContent {
+  background: rgba(24, 16, 15, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 153, 0, 0.3);
+  padding: 12px 20px;
+  border-radius: 4px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toolCity {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.toolName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.mapLegend {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  max-width: 280px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 3px solid var(--accent-amber);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-amber);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--accent-amber);
+}
+
+.legendItem span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.legendText {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .mapWrapper {
+    padding: 20px;
+  }
+  .mapLegend {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 40px;
+    max-width: 100%;
+  }
+}

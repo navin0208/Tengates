@@ -1,0 +1,86 @@
+.marqueeSection {
+  padding: 60px 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.row {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.row + .row {
+  margin-top: 16px;
+}
+
+.track {
+  display: inline-flex;
+  align-items: center;
+  will-change: transform;
+}
+
+.word {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 32px;
+}
+
+.outlined {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.12);
+  transition: all 0.4s ease;
+}
+
+.word:hover .outlined {
+  -webkit-text-stroke-color: rgba(255,255,255,0.3);
+  text-shadow: 0 0 60px rgba(230, 81, 0, 0.15);
+}
+
+.filled {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3.5vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.06);
+  transition: all 0.4s ease;
+}
+
+.word:hover .filled {
+  color: rgba(255,255,255,0.15);
+}
+
+.separator {
+  font-size: 10px;
+  color: var(--accent-amber);
+  opacity: 0.3;
+}

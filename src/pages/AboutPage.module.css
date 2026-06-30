@@ -1,0 +1,485 @@
+/* ═══════════════════════════════════════════
+   ABOUT PAGE
+   ═══════════════════════════════════════════ */
+
+.page {
+  background: var(--bg-primary);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Story */
+.storySection {
+  padding: 80px 0 100px;
+}
+
+.storyLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .storyLayout {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+}
+
+.storyLeft {
+  position: sticky;
+  top: 120px;
+}
+
+.storyText {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ═══ Leadership — Cinematic Founders ═══ */
+
+.leadershipSection {
+  position: relative;
+  padding: 100px 0 120px;
+  overflow: hidden;
+}
+
+.leadershipBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.leadershipGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background: transparent;
+}
+
+.leadershipHeader {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.foundersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .foundersGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.founderCard {
+  position: relative;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founderCard:hover {
+  border-color: rgba(230, 81, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
+
+/* Image */
+.founderImageWrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.founderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: contrast(1.1) saturate(0.8);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founderCard:hover .founderImage {
+  transform: scale(1.04);
+  filter: contrast(1.1) saturate(1);
+}
+
+.founderImageOverlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.founderGlowEdge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.founderCard:hover .founderGlowEdge {
+  opacity: 0.6;
+}
+
+/* Info */
+.founderInfo {
+  padding: 28px 32px 36px;
+}
+
+.founderRole {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-amber);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.founderName {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.founderDivider {
+  width: 32px;
+  height: 2px;
+  background: var(--accent-amber);
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+
+.founderQuote {
+  font-size: 0.85rem;
+  color: rgba(240, 242, 245, 0.5);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+/* Founder Stats */
+.founderStats {
+  display: flex;
+  gap: 24px;
+}
+
+.founderStat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.founderStatValue {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.founderStatLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+/* Full-bleed Image */
+.imageSection {
+  position: relative;
+  height: 40vh;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.imageSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4) contrast(1.15) saturate(0.7);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Mission & Vision */
+.mvSection {
+  padding: 80px 0;
+}
+
+.mvGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .mvGrid { grid-template-columns: 1fr 1fr; }
+}
+
+.mvCard {
+  padding: 48px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.mvCard:hover {
+  border-color: rgba(255,255,255,0.1);
+}
+
+.mvLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-amber);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.mvTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.mvText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Values */
+.valuesSection {
+  padding: 80px 0 100px;
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .valuesGrid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.valueCard {
+  padding: 32px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.valueCard:hover {
+  border-color: rgba(230, 81, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.valueNum {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent-amber);
+  opacity: 0.15;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.valueTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.valueText {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* Milestones */
+.milestonesSection {
+  padding: 80px 0 100px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.milestone:last-child {
+  border-bottom: none;
+}
+
+.milestoneYear {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 72px;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.milestoneLine {
+  width: 1px;
+  min-height: 40px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.milestoneContent {
+  flex: 1;
+}
+
+.milestoneTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.milestoneDesc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Contact CTA */
+.contactSection {
+  padding: 80px 0 120px;
+}
+
+.contactBox {
+  text-align: center;
+  padding: 56px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.contactText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.contactLink {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--accent-amber);
+}
+
+.contactLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}

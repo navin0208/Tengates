@@ -1,0 +1,130 @@
+.sustainabilitySection {
+  padding: 150px 0;
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.monoLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.headerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.massiveTitle {
+  font-size: clamp(3rem, 6vw, 7rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+  color: var(--text-primary);
+}
+
+.outlineText {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.imageMask {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+
+.parallaxImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%; /* Extra height for parallax */
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(1.2); /* Brutalist black and white look */
+}
+
+.dataColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-top: 20px;
+}
+
+.dataGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dataBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 2px solid var(--accent-amber);
+  padding-left: 24px;
+}
+
+.dataNum {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.dataLabel {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  max-width: 300px;
+}
+
+.technicalText {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  max-width: 500px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 40px;
+}
+
+@media (max-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .massiveTitle {
+    margin-bottom: 40px;
+  }
+  
+  .imageMask {
+    height: 400px;
+  }
+}
